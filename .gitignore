@@ -1,0 +1,23 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/aven-wrapper.jar
+
+# Jacoco
+target/
+.settings/
+!org.jacoco.core/.settings/
+!org.jacoco.core.test/.settings/
+org.jacoco.agent/src/jacocoagent.jar
