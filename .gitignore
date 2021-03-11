@@ -8,15 +8,14 @@
 *.iml
 *.iws
 
-# Mac
-.DS_Store
+
 
 # Maven
 log/
-target/aven-wrapper.jar
+target/maven-wrapper.jar
 
 # Jacoco
-target/
+target
 .settings/
 !org.jacoco.core/.settings/
 !org.jacoco.core.test/.settings/
