@@ -14,18 +14,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.concurrent.TimeUnit;
 
 public class NavigationChrome {
-
     private WebDriver driver;
-    private SomePage somePage;
+    //private SomePage somePage;
 
 
     @Before
     public void SetUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Yelena\\Documents\\Diploma\\testingLessons\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.get("https://www.w3schools.com/html/html_tables.asp");
-        somePage = new SomePage();
+        //somePage = new SomePage();
     }
 
     @Test
@@ -38,7 +37,7 @@ public class NavigationChrome {
     }
 
     @Test
-    @Order(3)
+    @Order(2)
     public void TableTestByElementText() {
         //driver.findElement(By.id("edit-search-block-form--2")).sendKeys("Narva College");
         WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"customers\"]/tbody/tr[3]/td[1]"));
@@ -49,19 +48,21 @@ public class NavigationChrome {
     }
 
     @Test
-    @Order(2)
+    @Order(4)
     public void NextButtonTest() {
         //driver.navigate().to("https://www.w3schools.com/html/html_tables.asp");
         WebElement button = driver.findElement(By.xpath("//*[@id=\"main\"]/div[2]/a[2]"));
-        Assert.assertEquals("Next ❯", button.getText());
+        Assert.assertTrue(button.getText().contains("Next"));
         button.click();
+        Assert.assertEquals("HTML Lists", driver.getTitle());
         String url = driver.getCurrentUrl();
+        System.out.println(driver.getTitle());
         Assert.assertEquals("https://www.w3schools.com/html/html_lists.asp", url);
     }
 
 
     @Test
-    @Order(4)
+    @Order(3)
     public void TableTestByPosition() {
         WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"customers\"]"));
         Table table = new Table(tableElement, driver);
