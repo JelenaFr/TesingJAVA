@@ -3,7 +3,6 @@ package SeleniumAssignment_6;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.sql.Driver;
 
 public class RegistrationPage {
 
