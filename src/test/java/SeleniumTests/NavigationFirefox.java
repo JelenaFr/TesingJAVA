@@ -2,7 +2,6 @@ package SeleniumTests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.Order;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class NavigationFirefox {
     static WebDriver driver;
     @Test
-    @Order(1)
     public void WebDriverStart() {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Yelena\\Documents\\Diploma\\testingLessons\\drivers\\geckodriver.exe");
         driver = new FirefoxDriver();
@@ -23,7 +21,6 @@ public class NavigationFirefox {
     }
 
     @Test
-    @Order(2)
     public void WebDriverElement() {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\Yelena\\Documents\\Diploma\\testingLessons\\drivers\\geckodriver.exe");
         driver = new FirefoxDriver();

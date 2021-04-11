@@ -1,11 +1,9 @@
 package SeleniumTests;
 
-import Selenium.SomePage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Order;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +26,6 @@ public class NavigationChrome {
     }
 
     @Test
-    @Order(1)
     public void WebDriverStart() {
         Assert.assertEquals("HTML Tables", driver.getTitle());
         System.out.println("Page title is : " + driver.getTitle());
@@ -37,7 +34,6 @@ public class NavigationChrome {
     }
 
     @Test
-    @Order(2)
     public void TableTestByElementText() {
         //driver.findElement(By.id("edit-search-block-form--2")).sendKeys("Narva College");
         WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"customers\"]/tbody/tr[3]/td[1]"));
@@ -48,7 +44,6 @@ public class NavigationChrome {
     }
 
     @Test
-    @Order(4)
     public void NextButtonTest() {
         //driver.navigate().to("https://www.w3schools.com/html/html_tables.asp");
         WebElement button = driver.findElement(By.xpath("//*[@id=\"main\"]/div[2]/a[2]"));
@@ -62,7 +57,6 @@ public class NavigationChrome {
 
 
     @Test
-    @Order(3)
     public void TableTestByPosition() {
         WebElement tableElement = driver.findElement(By.xpath("//*[@id=\"customers\"]"));
         Table table = new Table(tableElement, driver);

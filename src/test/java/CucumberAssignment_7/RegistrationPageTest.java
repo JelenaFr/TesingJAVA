@@ -1,4 +1,5 @@
-package SeleniumAssignment_6;
+package CucumberAssignment_7;
+
 
 import org.junit.After;
 import org.junit.Assert;
@@ -25,17 +26,10 @@ public class RegistrationPageTest {
 
     }
 
-    @Test
-    public void createAccountTest() {
-        driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
-        driver.getCurrentUrl();
-        registrationPage.createOrRegisterAccount("jelenafreiberg@hot.ee",
-                "Jelena Freiberg", "JFSeleniumTest", "maiuspala", driver, false);
 
-
-    }
 
     @Test
+
     public void facebookRegistrationTest() {
         registrationPage.facebookRegistration(driver);
         Assert.assertTrue(driver.getCurrentUrl().contains("https://www.facebook.com/login.php"));
@@ -43,6 +37,16 @@ public class RegistrationPageTest {
     }
 
     @Test
+
+   public void createAccountTest() {
+        driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
+        driver.getCurrentUrl();
+        registrationPage.createOrRegisterAccount("jelenafreiberg@hot.ee",
+                "Jelena Freiberg", "JFSeleniumTest", "maiuspala", driver, false);
+    }
+
+    @Test
+
     public void termsLinkTest() {
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         String loginButton = "[href=\"/accounts/login/?source=auth_switcher\"]";
@@ -51,15 +55,16 @@ public class RegistrationPageTest {
     }
 
     @Test
+
     public void alertMessagesValidEmailTest(){
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         registrationPage.createOrRegisterAccount("jelenafreiberghot.ee",
                 "Jelena Freiberg", "JFSeleniumTest", "maiuspala", driver, true);
         Assert.assertEquals(driver.findElement(By.cssSelector("[role='alert']")).getText(), "Enter a valid email address.");
-
-
     }
+
     @Test
+
     public void alertMessagesValidPhoneTest(){
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         //driver.getCurrentUrl();
@@ -70,32 +75,33 @@ public class RegistrationPageTest {
 
     }
 
-    @Test ()
+    @Test
+
     //This method always failed. Instagram has not alert for this situation
     public void alertMessagesValidNameTest(){
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         registrationPage.createOrRegisterAccount("jelenafreiberg@hot.ee",
                 "**********", "JFSeleniumTest", "maiuspala", driver, true);
+        System.out.println(driver.findElement(By.cssSelector("[role='alert']")).getText());
         Assert.assertEquals(driver.findElement(By.cssSelector("[role='alert']")).getText(), "Usernames can only use letters, numbers, underscores and periods.");
     }
-    @Test ()
+    @Test
+
     public void alertMessagesUniqueNameTest(){
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         registrationPage.createOrRegisterAccount("jelenafreiberg@hot.ee",
                 "Jelena Freiberg", "melaniatrump", "maiuspala", driver, true);
-
         Assert.assertEquals(driver.findElement(By.cssSelector("[role='alert']")).getText(), "This username isn't available. Please try another.");
     }
 
     @Test
+
     public void alertMessagesPasswordTest(){
         driver.findElement(By.cssSelector("[class*=bIiDR]")).click();
         registrationPage.createOrRegisterAccount("jelenafreiberg@hot.ee",
                 "Jelena Freiberg", "JFSeleniumTest", "123456", driver, true);
-
         Assert.assertEquals(driver.findElement(By.cssSelector("[role='alert']")).getText(), "This password is too easy to guess. Please create a new one.");
     }
-
 
     @After
     public void testDown() {
@@ -103,3 +109,4 @@ public class RegistrationPageTest {
     }
 
 }
+
